@@ -6,13 +6,11 @@ import os
 def run_tui():
     from tui import TUI
 
-    tui = TUI(None)
-    curses_wrapper = __import__("curses").wrapper
-
     def run(stdscr):
+        tui = TUI(stdscr)
         tui._run_game(stdscr)
 
-    curses_wrapper(run)
+    __import__("curses").wrapper(run)
 
 
 def run_pygame_fallback():
